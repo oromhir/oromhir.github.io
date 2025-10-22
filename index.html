@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title lang="hu">Evangélium</title>
+    <style>
+        :root {
+            --background-color: rgb(119, 56, 25);
+            --quote-color: rgb(248, 214, 184);
+            --footer-color: rgb(248, 214, 184);
+
+            --background-color: #737c36;
+            --quote-color: #e5f580;
+            --footer-color: #D4DE95;
+
+            /* with black color, #A4B9DA*/
+            --background-color: #606f9f;
+            --background-color: #4C6A92;
+            --background-color: #3F69AA;
+            --quote-color: #ecf1f8;
+            --footer-color: #FF5722;
+            --footer-color: #ff9900;
+            --footer-color: #FFEB3B;
+            --footer-color: #00C853;
+            --footer-color: #ffeee9;
+            /* red */
+            --footer-color: #fffbd8;
+            /* yellow */
+            --footer-color: #f2fcf6;
+            /* green */
+            --footer-color: #d9e3f2;
+        }
+
+        #main {
+            position: fixed;
+            left: 14vw;
+            top: 16vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main>a {
+            line-height: 1.6;
+            word-break: normal;
+            overflow-wrap: break-word;
+            hyphens: none;
+            text-align: center;
+        }
+
+        .common-style {
+            background-color: var(--background-color);
+            background: linear-gradient(to top left, var(--background-color) 0%, #4970ae 20%, #5278b2 40%, #5c80b7 60%, #6587bb 80%, #6f8ebf 100%);
+            min-height: 100vh;
+        }
+
+        .quote {
+            text-shadow: 0 2px 4px rgba(50, 30, 0, 0.3);
+            font-family: Georgia, Garamond, serif;
+            font-size: x-large;
+            color: var(--quote-color);
+        }
+
+        .footer {
+            font-family: Garamond, serif;
+            font-style: italic;
+            font-variant: small-caps;
+            font-size: 0.55em;
+            color: var(--footer-color);
+            text-align: center;
+            letter-spacing: 0.5px;
+            margin-top: 0.3em;
+        }
+    </style>
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function showVerse(commonStyleClass = 'common-style', quoteStyleClass = 'quote', footerStyleClass = 'footer') {
+            document.body.classList.add(commonStyleClass);
+
+            let tempLength = document.getElementsByTagName("template").length;
+
+            let randomValue = getRandomInt(tempLength);
+            let template = document.getElementsByTagName("template")[randomValue];
+            const anchor = document.createElement('a');
+            [...template.content.children].forEach(section => {
+                const sectionClone = section.cloneNode(true);
+                if ('wordsBy' in sectionClone.dataset) {
+                    sectionClone.classList.add(quoteStyleClass);
+                }
+                sectionClone.querySelectorAll('footer').forEach(footer => { footer.classList.add(footerStyleClass) });
+                anchor.appendChild(sectionClone);
+            });
+
+            const sectionClone = anchor.firstElementChild;
+            const book = sectionClone.dataset.book;
+            const chapter = sectionClone.dataset.chapter;
+            const verse = sectionClone.dataset.verse;
+            const translation = sectionClone.dataset.translation;
+            if (['STL', 'RUF'].includes(translation)) {
+                anchor.href = `https://szentiras.hu/biblia/${translation.toLowerCase()}/${book}/${chapter},${verse}`;
+            } else if (translation == 'EFO') {
+                anchor.href = `https://www.bible.com/hu/bible/198/${book}.${chapter}.${verse}.EFO`;
+            }
+            anchor.style = 'color: inherit; text-decoration: none;';
+            document.getElementById("main").appendChild(anchor);
+        }    
+    </script>
+
+</head>
+
+<body onload="showVerse()">
+    <template>
+        <section data-words-by="Jeshua" data-book="jhn" data-chapter="3" data-verse="16" data-translation="RUF">
+            Mert úgy szerette Isten a világot, hogy egyszülött Fiát adta,<br />
+            hogy aki hisz őbenne, el ne vesszen, hanem örök élete legyen.
+            <footer>— Jézus Krisztusnak, Isten Fiának a szavai</footer>
+        </section>
+    </template>
+
+    <template>
+        <section data-words-by="Jeshua" data-book="JHN" data-chapter="11" data-verse="25-26" data-translation="RUF">
+            Én vagyok a feltámadás és az élet, aki hisz énbennem, ha meghal is, él&hellip;
+            <footer>— Jézus Krisztusnak a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="Jeshua" data-book="JHN" data-chapter="11" data-verse="25-26" data-translation="RUF">
+            Én vagyok a feltámadás és az élet, aki hisz énbennem, &hellip; az nem hal meg soha.
+            <footer>— Jézus Krisztusnak a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="jn" data-book="1jn" data-chapter="5" data-verse="11-12" data-translation="EFO">
+            Isten örök életet adott nekünk - és ez az élet Isten Fiában [Jézus Krisztusban] van.<br />
+            [A]kiben él a Fiú, annak örök élete van. Akiben viszont nem él az Isten Fia, annak nincs örök élete.
+            <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="Jeshua" data-book="mt" data-chapter="20" data-verse="28" data-translation="EFO">
+            [A]z Emberfia &hellip; azért jött,<br />
+            hogy &hellip; ő szolgáljon [az emberek felé], és életét adja váltságul sokakért.
+            <footer>— Jézus Krisztusnak a szavai önmagáról</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="Jeshua" data-book="luk" data-chapter="19" data-verse="10" data-translation="EFO">
+            Mert az Emberfia azért jött,<br />
+            hogy megkeresse az elveszetteket, és megmentse őket.
+            <footer>— Jézus Krisztusnak a szavai önmagáról</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="pal" data-book="1co" data-chapter="15" data-verse="3-5" data-translation="EFO">
+            Krisztus a bűneinkért halt meg &hellip;, azután eltemették,<br />
+            de a harmadik napon feltámadt, és &hellip; a feltámadása után láthatóan megjelent [sokaknak].
+            <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="pt" data-book="act" data-chapter="4" data-verse="12" data-translation="EFO">
+            Mert nincs senki másban üdvösség, egyedül csak Jézusban!<br />
+            Az ő neve az egyetlen a világon, amely által az emberek üdvösségre juthatnak!
+            <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="pal" data-book="1Ti" data-chapter="1" data-verse="15" data-translation="EFO">
+            Bárcsak mindenki felismerné és elfogadná,<br />
+            hogy Krisztus Jézus azért jött a világra, hogy a bűnösöket megmentse!
+            <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="jn" data-book="1jn" data-chapter="4" data-verse="9" data-translation="EFO">
+            Isten pedig úgy mutatta meg nekünk, mennyire szeret bennünket,<br />
+            hogy elküldte a Földre az egyetlen Fiát [Jézus Krisztust], hogy rajta keresztül örök életet kapjunk.<br />
+            <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="jn" data-book="1jn" data-chapter="4" data-verse="9-10" data-translation="EFO">
+            Isten pedig úgy mutatta meg nekünk, mennyire szeret bennünket,<br />
+            &hellip; hogy a saját Fiát [Jézus Krisztust] küldte a Földre azért, hogy engesztelő áldozat legyen a
+            bűneinkért.
+            <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="lk" data-book="act" data-chapter="10" data-verse="43" data-translation="EFO">
+            [A]kik hisznek Jézusban, azoknak Isten megbocsátja a bűneit.
+            <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="jesaja" data-book="isa" data-chapter="53" data-verse="5-6" data-translation="EFO">
+            Bizony, bűneinkért kapott sebeket, vétkeinkért törték össze őt!<br />
+            Békességünk büntetését ő fizette meg, és sebei árán gyógyultunk meg.<br />
+            <footer>— Messiási prófécia Jézus Krisztusról Kr. e. 540 körüli időből</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="pt" data-book="1pe" data-chapter="3" data-verse="18" data-translation="EFO">
+            [M]aga Krisztus &hellip; meghalt &hellip; a bűnök miatt.<br />
+            Az Ártatlan halt meg a bűnösökért, hogy Istenhez vezessen benneteket.
+            <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
+        </section>
+    </template>
+    <template>
+        <section data-words-by="pal" data-book="rom" data-chapter="5" data-verse="8" data-translation="EFO">
+            Isten azonban azzal mutatta meg,<br />
+            mennyire szeret bennünket, hogy Krisztus &hellip; meghalt értünk&hellip;
+            <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
+        </section>
+    </template>
+
+    <article id="main" style="margin-top: 3em;">
+    </article>
+
+</body>
+
+</html>
