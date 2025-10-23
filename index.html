@@ -64,6 +64,11 @@
             color: var(--quote-color);
         }
 
+        .quote-paragraph {
+            margin: 0;
+            padding: 0;
+        }
+
         .footer {
             font-family: Garamond, serif;
             font-style: italic;
@@ -94,6 +99,7 @@
                     sectionClone.classList.add(quoteStyleClass);
                 }
                 sectionClone.querySelectorAll('footer').forEach(footer => { footer.classList.add(footerStyleClass) });
+                sectionClone.querySelectorAll('p').forEach(paragraph => { paragraph.classList.add('quote-paragraph') });                
                 anchor.appendChild(sectionClone);
             });
 
@@ -117,105 +123,114 @@
 <body onload="showVerse()">
     <template>
         <section data-words-by="Jeshua" data-book="jhn" data-chapter="3" data-verse="16" data-translation="RUF">
-            Mert úgy szerette Isten a világot, hogy egyszülött Fiát adta,<br />
-            hogy aki hisz őbenne, el ne vesszen, hanem örök élete legyen.
+            <p>Mert úgy szerette Isten a világot, hogy egyszülött Fiát adta,</p>
+            <p>hogy aki hisz őbenne, el ne vesszen, hanem örök élete legyen.</p>
             <footer>— Jézus Krisztusnak, Isten Fiának a szavai</footer>
         </section>
     </template>
 
     <template>
         <section data-words-by="Jeshua" data-book="JHN" data-chapter="11" data-verse="25-26" data-translation="RUF">
-            Én vagyok a feltámadás és az élet, aki hisz énbennem, ha meghal is, él&hellip;
+            <p>Én vagyok a feltámadás és az élet, aki hisz énbennem,</p>
+            <p>ha meghal is, él&hellip;</p>
             <footer>— Jézus Krisztusnak a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="Jeshua" data-book="JHN" data-chapter="11" data-verse="25-26" data-translation="RUF">
-            Én vagyok a feltámadás és az élet, aki hisz énbennem, &hellip; az nem hal meg soha.
+            <p>Én vagyok a feltámadás és az élet, aki hisz énbennem,</p>
+            <p>&hellip; az nem hal meg soha.</p>
             <footer>— Jézus Krisztusnak a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="jn" data-book="1jn" data-chapter="5" data-verse="11-12" data-translation="EFO">
-            Isten örök életet adott nekünk - és ez az élet Isten Fiában [Jézus Krisztusban] van.<br />
-            [A]kiben él a Fiú, annak örök élete van. Akiben viszont nem él az Isten Fia, annak nincs örök élete.
+            <p>Isten örök életet adott nekünk -</p>
+            <p>és ez az élet Isten Fiában [Jézus Krisztusban] van.</p>
+            <p>[A]kiben él a Fiú, annak örök élete van.</p>
+            <p>Akiben viszont nem él az Isten Fia, annak nincs örök élete.</p>
             <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
         </section>
     </template>
     <template>
-        <section data-words-by="Jeshua" data-book="mat" data-chapter="20" data-verse="28" data-translation="RUF">
-            [A]z Emberfia &hellip; azért jött,<br />
-            hogy &hellip; ő szolgáljon [az emberek felé], és életét adja váltságul sokakért.
+        <section data-words-by="Jeshua" data-book="mat" data-chapter="20" data-verse="28" data-translation="EFO">
+            <p>[A]z Emberfia &hellip; azért jött, hogy &hellip; ő [az emberek felé] szolgáljon,</p>
+            <p>és életét adja váltságul sokakért.</p>
             <footer>— Jézus Krisztusnak a szavai önmagáról</footer>
         </section>
     </template>
     <template>
         <section data-words-by="Jeshua" data-book="luk" data-chapter="19" data-verse="10" data-translation="EFO">
-            Mert az Emberfia azért jött,<br />
-            hogy megkeresse az elveszetteket, és megmentse őket.
+            <p>Mert az Emberfia azért jött,</p>
+            <p>hogy megkeresse az elveszetteket, és megmentse őket.</p>
             <footer>— Jézus Krisztusnak a szavai önmagáról</footer>
         </section>
     </template>
     <template>
         <section data-words-by="pal" data-book="1co" data-chapter="15" data-verse="3-5" data-translation="EFO">
-            Krisztus a bűneinkért halt meg &hellip;, azután eltemették,<br />
-            de a harmadik napon feltámadt, és &hellip; a feltámadása után láthatóan megjelent [sokaknak].
+            <p>Krisztus a bűneinkért halt meg &hellip;,</p>
+            <p>azután eltemették, de a harmadik napon feltámadt,</p>
+            <p>és &hellip; a feltámadása után láthatóan megjelent [sokaknak].</p>
             <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="pt" data-book="act" data-chapter="4" data-verse="12" data-translation="EFO">
-            Mert nincs senki másban üdvösség, egyedül csak Jézusban!<br />
-            Az ő neve az egyetlen a világon, amely által az emberek üdvösségre juthatnak!
+            <p>Mert nincs senki másban üdvösség,</p>
+            <p>egyedül csak Jézusban! Az ő neve az egyetlen a világon,</p>
+            <p>amely által az emberek üdvösségre juthatnak!</p>
             <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="pal" data-book="1Ti" data-chapter="1" data-verse="15" data-translation="EFO">
-            Bárcsak mindenki felismerné és elfogadná,<br />
-            hogy Krisztus Jézus azért jött a világra, hogy a bűnösöket megmentse!
+            <p>Bárcsak mindenki felismerné és elfogadná,</p>
+            <p>hogy Krisztus Jézus azért jött a világra, hogy a bűnösöket megmentse!</p>
             <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="jn" data-book="1jn" data-chapter="4" data-verse="9" data-translation="EFO">
-            Isten pedig úgy mutatta meg nekünk, mennyire szeret bennünket,<br />
-            hogy elküldte a Földre az egyetlen Fiát [Jézus Krisztust], hogy rajta keresztül örök életet kapjunk.<br />
+            <p>Isten pedig úgy mutatta meg nekünk,</p>
+            <p>mennyire szeret bennünket,</p>
+            <p>hogy elküldte a Földre az egyetlen Fiát [Jézus Krisztust],</p>
+            <p>hogy rajta keresztül örök életet kapjunk.</p>
             <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="jn" data-book="1jn" data-chapter="4" data-verse="9-10" data-translation="EFO">
-            Isten pedig úgy mutatta meg nekünk, mennyire szeret bennünket,<br />
-            &hellip; hogy a saját Fiát [Jézus Krisztust] küldte a Földre azért, hogy engesztelő áldozat legyen a
-            bűneinkért.
+            <p>Isten pedig úgy mutatta meg nekünk,</p>
+            <p>mennyire szeret bennünket,</p>
+            <p>&hellip; hogy a saját Fiát [Jézus Krisztust] küldte a Földre azért,</p>
+            <p>hogy engesztelő áldozat legyen a bűneinkért.</p>
             <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="lk" data-book="act" data-chapter="10" data-verse="43" data-translation="EFO">
-            [A]kik hisznek Jézusban, azoknak Isten megbocsátja a bűneit.
+            <p>[A]kik hisznek Jézusban, azoknak Isten megbocsátja a bűneit.</p>
             <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="jesaja" data-book="isa" data-chapter="53" data-verse="5-6" data-translation="EFO">
-            Bizony, bűneinkért kapott sebeket, vétkeinkért törték össze őt!<br />
-            Békességünk büntetését ő fizette meg, és sebei árán gyógyultunk meg.<br />
+            <p>Bizony, bűneinkért kapott sebeket, vétkeinkért törték össze őt!</p>
+            <p>Békességünk büntetését ő fizette meg, és sebei árán gyógyultunk meg.</p>
             <footer>— Messiási prófécia Jézus Krisztusról Kr. e. 540 körüli időből</footer>
         </section>
     </template>
     <template>
         <section data-words-by="pt" data-book="1pe" data-chapter="3" data-verse="18" data-translation="EFO">
-            [M]aga Krisztus &hellip; meghalt &hellip; a bűnök miatt.<br />
-            Az Ártatlan halt meg a bűnösökért, hogy Istenhez vezessen benneteket.
+            <p>[M]aga Krisztus &hellip; meghalt &hellip; a bűnök miatt.</p>
+            <p>Az Ártatlan halt meg a bűnösökért, hogy Istenhez vezessen benneteket.</p>
             <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="pal" data-book="rom" data-chapter="5" data-verse="8" data-translation="EFO">
-            Isten azonban azzal mutatta meg,<br />
-            mennyire szeret bennünket, hogy Krisztus &hellip; meghalt értünk&hellip;
+            <p>Isten azonban azzal mutatta meg,</p>
+            <p>mennyire szeret bennünket, hogy Krisztus &hellip; meghalt értünk&hellip;</p>
             <footer>— Jézus Krisztus egyik tanítványának a szavai</footer>
         </section>
     </template>
