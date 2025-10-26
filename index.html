@@ -51,6 +51,20 @@
             text-align: center;
         }
 
+        .main-position {
+            position: fixed;
+            left: 14vw;
+            top: 16vh;                
+        }
+
+        @media (max-width: 768px) and (orientation: portrait) {
+            .main-position {
+                position: fixed;
+                left: 2vw;
+                top: 16vh;                
+            }
+        }
+
         .common-style {
             background-color: var(--background-color);
             background: linear-gradient(to top left, var(--background-color) 0%, #4970ae 20%, #5278b2 40%, #5c80b7 60%, #6587bb 80%, #6f8ebf 100%);
@@ -233,7 +247,7 @@
         </section>
     </template>
 
-    <article id="main" style="margin-top: 3em;">
+    <article id="main" class="main-position">
     </article>
 
 </body>
