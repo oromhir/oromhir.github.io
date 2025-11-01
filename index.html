@@ -44,7 +44,7 @@
 
         #main>a {
             line-height: 1.6;
-            word-break: normal;
+            word-eak: normal;
             overflow-wrap: break-word;
             hyphens: none;
             text-align: center;
@@ -78,6 +78,12 @@
             letter-spacing: 0.5px;
             margin-top: 0.3em;
         }
+
+        @media (max-width: 600px) {
+            br {
+              display: block;
+            }
+        }        
     </style>
     <script>
         function getRandomInt(max) {
@@ -130,14 +136,14 @@
 
     <template>
         <section data-words-by="Jeshua" data-book="JHN" data-chapter="11" data-verse="25-26" data-translation="RUF">
-            <p>Én vagyok a feltámadás és az élet, aki hisz&nbsp;énbennem,</p>
+            <p>Én vagyok a feltámadás és az élet, <br>aki hisz énbennem,</p>
             <p>ha meghal is, él&hellip;</p>
             <footer>— Jézus Krisztusnak a szavai</footer>
         </section>
     </template>
     <template>
         <section data-words-by="Jeshua" data-book="JHN" data-chapter="11" data-verse="25-26" data-translation="RUF">
-            <p>Én vagyok a feltámadás és az élet, aki hisz&nbsp;énbennem,</p>
+            <p>Én vagyok a feltámadás és az élet, <br>aki hisz énbennem,</p>
             <p>&hellip; az nem hal meg soha.</p>
             <footer>— Jézus Krisztusnak a szavai</footer>
         </section>
